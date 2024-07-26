@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'popince', sansserif;
+            background-color: #080808;
+            color: white;
+        }
+
+        #header {
+            height: 100vh;
+            width: 100%;
+            background-image: url("https://rare-gallery.com/thumbs/556931-boy-child-cute.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        #header .contaner {
+            padding: 10px 5%;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 10px 20px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            width: 0%;
+            height: 3px;
+            background: rgb(252, 91, 91);
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+
+
+        .header-text {
+            margin-top: 15%;
+            font-size: 15px;
+        }
+
+        .header-text h1 {
+            margin-top: 20px;
+            font-size: 50px;
+        }
+
+        .red {
+            color: rgb(252, 91, 91);
+        }
+
+        .myimg {
+            height: 450px;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: rgb(66, 65, 65) 0px 22px 70px 4px;
+            background-position: 0%;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: 100px;
+        }
+
+        .sub-heading {
+            font-weight: 600;
+            margin-top: 150px;
+        }
+
+        .sub-titel {
+            width: 350px;
+        }
+
+        .display-btn {
+            display: flex;
+        }
+
+        .skills-bar {
+            width: 50%;
+            background-color: aliceblue;
+            border-radius: 10px;
+        }
+
+        .progress-bar {
+            border-radius: 10px;
+            width: 98%;
+            background-color: rgb(0, 128, 62);
+        }
+
+        .ui-bar {
+            border-radius: 10px;
+            width: 90%;
+            background-color: rgb(0, 195, 255);
+            text-align: center;
+        }
+
+        .web-bar {
+            border-radius: 10px;
+            width: 90%;
+            background-color: gold;
+            text-align: center;
+        }
+
+        .my-skills {
+            display: none;
+            transition: 0.5s;
+        }
+
+        .show-skills {
+            display: contents;
+        }
+
+        .my-projects {
+            display: none;
+            transition: 0.5s;
+        }
+
+        .show-project {
+            display: contents;
+        }
+
+        .my-education {
+            display: none;
+            transition: 0.5s;
+        }
+
+        .show-education {
+            display: contents;
+        }
+
+        #about .display-btn button {
+            background-color: #52B273;
+            color: white;
+            border: 0;
+            height: 25px;
+            width: 100px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        #about .display-btn button:hover {
+            background-color: rgb(252, 91, 91);
+        }
+
+        .services-heading {
+            margin: 100px 0;
+            text-align: center;
+        }
+
+        #my-services {
+            display: flex;
+            justify-content: center;
+        }
+
+        #my-services div {
+            width: 350px;
+            height: 300px;
+            margin: 50px;
+            background-color: rgb(74, 72, 72);
+            border-radius: 10px;
+        }
+
+        #my-services div:hover {
+            background-color: #2797B7;
+            transform: translateY(10px);
+            transition: 0.5s;
+        }
+
+        #my-services div i {
+            margin: 20px;
+            font-size: 40px;
+        }
+
+        #my-services div h3 {
+            margin-left: 20px;
+        }
+
+        #my-services div p {
+            margin-left: 20px;
+            color: #ffffff;
+        }
+
+        #portfolio {
+            padding: 50px 0;
+        }
+
+        #portfolio .my-work .work {
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #portfolio .my-work .work img {
+            width: 250px;
+            height: 350px;
+            border-radius: 10px;
+            display: block;
+        }
+
+        #portfolio button {
+            width: 180px;
+            height: 50px;
+            border: 2px solid #4f46e5;
+            ;
+            border-radius: 10px;
+            background: transparent;
+            color: white;
+            position: relative;
+            left: 50%;
+            top: 20px;
+            transform: translate(-50%);
+        }
+
+        #portfolio button:hover {
+            background-color: #52B273;
+            border: 0;
+            transition: 0.5s;
+        }
+
+        .img-text {
+            height: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), #ff005f);
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            text-align: center;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .work:hover .img-text {
+            height: 100%;
+            transition: 0.5s;
+        }
+
+        .my-work {
+            justify-content: center;
+            display: flex;
+            margin-bottom: 25px;
+        }
+
+        .img-text h3 i {
+            color: rgb(143, 143, 243);
+            cursor: pointer;
+        }
+
+        #project {
+            margin-top: 100px;
+        }
+
+        .contact-item {
+            justify-content: center;
+            display: grid;
+        }
+
+        .contact-item h1 {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .contact-item p {
+            font-size: 20px;
+            margin: 15px 0;
+        }
+
+        .contact-item p i {
+            padding-right: 20px;
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .contact-item button {
+            width: 180px;
+            height: 50px;
+            border: 2px solid #4f46e5;
+            ;
+            border-radius: 10px;
+            background: transparent;
+            margin: 50px 0;
+            color: white;
+        }
+
+        .contact-item button:hover {
+            background-color: #52B273;
+            border: 0;
+            transition: 0.5s;
+        }
+
+        .icon i {
+            margin-right: 20px;
+            margin-top: 15px;
+            font-size: 25px;
+        }
+
+        .google-form h1 {
+            margin-left: 50px;
+        }
+
+        nav .fas {
+            display: none;
+        }
+
+        @media only screen and (max-width: 670px) {
+            .header-text h1 {
+                font-size: 30px;
+            }
+
+            .header-text {
+                margin-top: 350px;
+            }
+
+            nav .fas {
+                display: contents;
+                font-size: 25px;
+                cursor: pointer;
+            }
+            .nav-item{
+                background-color: #ff005f;
+                position: fixed;
+                top: 0;
+                right: -170px;
+                width: 170px;
+                height: 100vh;
+                padding-top: 50px;
+                border-radius: 10px 0 0 10px;
+                z-index: 1;
+                transition: 0.5s;
+            }
+            .menu-bar{
+                right: 0px;
+                transition: 0.5s;
+            }
+            nav ul li{
+                display: block;
+                margin: 25px;
+                position: relative;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div class="contaner">
+            <nav>
+                <h1><span class="red">N</span>ITIN</h1>
+                <ul class="nav-item">
+                    <i class="fas fa-xmark" onclick="cut()"></i>
+                    <li><a href="#header"><i class="fa-solid fa-house"></i>  home</a></li>
+                    <li><a href="#about"><i class="fa-solid fa-address-card"></i>  about</a></li>
+                    <li><a href="#my-services"><i class="fa-solid fa-gears"></i>  services</a></li>
+                    <li><a href="#portfolio"><i class="fa-solid fa-user-tie"></i>  portfolio</a></li>
+                    <li><a href="#project"> <i class="fa-solid fa-briefcase"></i>  project</a></li>
+                </ul>
+                <i class="fas fa-bars " onclick="menu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>UI/UX DESIGNER</p>
+                <H1>Hi , I'M <span class="red">Nitin</span><br> Saini from Rewari </H1>
+            </div>
+        </div>
+    </div>
+    <div id="about">
+
+        <div class="row g-0">
+            <div class="col-md-6 ">
+                <img class="myimg" src='WhatsApp Image 2024-06-26 at 10.16.35 PM.jpeg' alt="">
+            </div>
+
+            <div class="col-md-6">
+                <h1 class="sub-heading"><span class="red"> ABOUT ME </span></h1>
+                <p class="sub-titel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus impedit assumenda
+                    magni expedita
+                    excepturi aspernatur dolores omnis, eos animi nesciunt. Aspernatur molestias illum saepe debitis,
+                    omnis necessitatibus eius a! Quis, natus. Animi temporibus, beatae similique vitae facere, cum
+                    facilis repudiandae id perferendis quaerat ratione dicta in blanditiis consectetur est cumque!</p>
+                <div class="display-btn">
+                    <button class="skills " onclick="seeskills()">SKILLS</button>
+                    <button class="experience mx-3" onclick="seeproject()">PROJECTS</button>
+                    <button class="educatio0n " onclick="seeducation()">EDUCATION</button>
+                </div>
+
+
+
+                <div class="my-skills">
+
+                    <p>front end <span class="red">development</span></p>
+                    <div class="skills-bar">
+                        <div class="progress-bar">98%</div>
+                    </div>
+
+                    <p>ui/ux <span class="red">development</span></p>
+                    <div class="skills-bar">
+                        <div class="ui-bar">90%</div>
+                    </div>
+
+                    <p>web <span class="red">development</span></p>
+                    <div class="skills-bar">
+                        <div class="web-bar">90%</div>
+                    </div>
+                </div>
+
+                <div class="my-projects">
+                    <ol>
+                        <h4><span class="red">project ’ s</span></h4>
+                        <li>currency converter</li>
+                        <li>tic tac toe game</li>
+                        <li>google form</li>
+                        <li>portfolio website</li>
+                        <li>calculator</li>
+                    </ol>
+                </div>
+
+                <div class="my-education">
+                    <ol>
+                        <h4><span class="red"> Education </span></h4>
+                        <li>10th & 12th</li>
+                        central board of secondary education
+                        <li>bachelor of commerce</li>
+                        klp colleg ,rewari (pursuing)
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="my-services" class=" row g-0 ">
+        <h1 class="services-heading">MY SERVICES</h1>
+        <div class="col-md-4">
+            <i class="fa-solid fa-code"></i>
+            <h3 class="my-3">web design</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi est vel neque debitis. Quo labore sapiente
+                consequuntur deleniti nobis a.</p>
+            <p>learn more.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fa-solid fa-crop-simple"></i>
+            <h3 class="my-3">ui/ux design</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi est vel neque debitis. Quo labore sapiente
+                consequuntur deleniti nobis a.</p>
+            <p>learn more.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fa-brands fa-app-store"></i>
+            <h3 class="my-3">app design</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi est vel neque debitis. Quo labore sapiente
+                consequuntur deleniti nobis a.</p>
+            <p>learn more.</p>
+        </div>
+    </div>
+
+    <div id="portfolio" class="row g-0">
+        <h1 class="services-heading">MY WORK</h1>
+        <div class="my-work col-lg-4">
+            <div class="work ">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR04g0hvZkdA57YD1Jck2qGLpmyGbYOtilgspckC3x9g6gnH37F"
+                    alt="">
+                <div class=" img-text">
+                    <h4>social media app</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, quidem et illo accusamus eius,</p>
+                    <h3><i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                </div>
+            </div>
+        </div>
+        <div class="my-work col-lg-4">
+            <div class="work ">
+                <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQe_jL6f2afNyYPXThI6O7lxauDcLznmUHJpkRVsCXl0DlC_zI6"
+                    alt="">
+                <div class=" img-text">
+                    <h4>music app</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, quidem et illo accusamus eius,</p>
+                    <h3><i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                </div>
+            </div>
+        </div>
+        <div class="my-work col-lg-4">
+            <div class="work ">
+                <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSoyJaX_Wy0bF-ifBuhv7Z3RgO5lrAzU2rzGCRpdNSAA7zSWEYJ"
+                    alt="">
+                <div class=" img-text">
+                    <h4>online shoping app</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, quidem et illo accusamus eius,</p>
+                    <h3><i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                </div>
+            </div>
+        </div>
+        <button>see more</button>
+    </div>
+
+    <div id="project">
+        <div class="row g-0">
+            <div class="col-lg-6 ">
+                <div class="contact-item">
+                    <h1>CONTACT ME</h1>
+                    <p> <span><i class="fa-solid fa-paper-plane"></i></span>nitinsaini45670@gmail.com</p>
+                    <p> <span><i class="fa-solid fa-square-phone"></i></span>9034774543</p>
+                    <div class="icon">
+                        <span><i class="fa-brands fa-facebook"></i></span>
+                        <span><i class="fa-brands fa-twitter"></i></span>
+                        <span><i class="fa-brands fa-instagram"></i></span>
+                        <span><i class="fa-brands fa-whatsapp"></i></span>
+                    </div>
+                    <a href="nitin CV Resume.pdf" download>
+                        <button>Downlod CV</button></a>
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="google-form">
+                    <h3>submit Details :</h3>
+                    <script src="https://sheetdb.io/s/f/tsuh7xgmzzydl.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+    <script>
+        function seeskills() {
+            document.querySelector('.my-skills').classList.add('show-skills')
+        }
+        function seeproject() {
+            document.querySelector('.my-projects').classList.add('show-project')
+        }
+        function seeducation() {
+            document.querySelector('.my-education').classList.add('show-education')
+        }
+        function menu(){
+            document.querySelector('.nav-item').classList.add('menu-bar')
+        }
+        function cut(){
+            document.querySelector('.nav-item').classList.remove('menu-bar')
+        }
+    </script>
+</body>
+
+</html>
